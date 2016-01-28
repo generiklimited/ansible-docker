@@ -1,6 +1,7 @@
 # ansible-docker
 Dockerfile for ansible in a docker on Alpine Linux
 
+[![](http://badge-imagelayers.iron.io/generik/ansible:latest.svg)](http://imagelayers.iron.io/?images=generik/ansible:latest 'Get your own badge on imagelayers.iron.io')
 
 ## Usage
 
