@@ -5,6 +5,7 @@
       && apk add py-httplib2 py-netifaces py-msgpack openssh \
          --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
       && rm -rf /var/cache/apk/*
+      RUN pip install --upgrade setuptools
       RUN pip install python-novaclient python-keyczar boto
       RUN mkdir /etc/ansible/
       RUN echo "[local]" > /etc/ansible/hosts ; echo "localhost ansible_connection=local" >> /etc/ansible/hosts
