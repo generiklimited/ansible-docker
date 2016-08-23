@@ -1,5 +1,5 @@
       FROM alpine:edge
-      MAINTAINER Mateusz Pawlowski 
+      MAINTAINER Mateusz Pawlowski
       RUN apk --update add \
         py-yaml py-jinja2  py-paramiko py-setuptools git py-pip perl py-simplejson rsync \
       && apk add py-httplib2 py-netifaces py-msgpack openssh \
@@ -12,7 +12,7 @@
       RUN mkdir /opt/ansible/ -p
       RUN git clone http://github.com/ansible/ansible.git /opt/ansible/ansible
       WORKDIR /opt/ansible/ansible
-      RUN git checkout v2.1.1.0-1
+      RUN git checkout v2.1.2.0-0.1.rc1
       RUN git submodule update --init
       ENV PATH /opt/ansible/ansible/bin:/bin:/usr/bin:/sbin:/usr/sbin
       ENV PYTHONPATH /opt/ansible/ansible/lib
