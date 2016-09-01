@@ -1,12 +1,12 @@
       FROM alpine:edge
       MAINTAINER Mateusz Pawlowski
-      RUN apk --update add \
-        py-yaml py-jinja2  py-paramiko py-setuptools git py-pip perl py-simplejson rsync \
-      && apk add py-httplib2 py-netifaces py-msgpack openssh \
-         --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
+      RUN apk --no-cache add \
+        py-yaml py-jinja2  py-paramiko py-setuptools git py2-pip perl py-simplejson rsync \
+        py-httplib2 openssh \
+         && apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/  py-netifaces py-msgpack \
       && rm -rf /var/cache/apk/*
       RUN pip install --upgrade setuptools
-      RUN pip install python-novaclient python-keyczar boto
+      RUN pip install python-keyczar boto
       RUN mkdir /etc/ansible/
       RUN echo "[local]" > /etc/ansible/hosts ; echo "localhost ansible_connection=local" >> /etc/ansible/hosts
       RUN mkdir /opt/ansible/ -p
