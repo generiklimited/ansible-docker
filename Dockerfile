@@ -2,11 +2,11 @@
       MAINTAINER Mateusz Pawlowski
       RUN apk --no-cache add \
         py-yaml py-jinja2  py-paramiko py-setuptools git py2-pip perl py-simplejson rsync \
-        py-httplib2 openssh \
+        py-httplib2 openssh py-dnspython \
          && apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/  py-netifaces py-msgpack \
       && rm -rf /var/cache/apk/*
       RUN pip install --upgrade setuptools
-      RUN pip install python-keyczar boto hvac
+      RUN pip install python-keyczar boto hvac python-consul
       RUN mkdir /etc/ansible/
       RUN echo "[local]" > /etc/ansible/hosts ; echo "localhost ansible_connection=local" >> /etc/ansible/hosts
       RUN mkdir /opt/ansible/ -p
