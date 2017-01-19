@@ -12,7 +12,7 @@
       RUN mkdir /opt/ansible/ -p
       RUN git clone http://github.com/ansible/ansible.git /opt/ansible/ansible
       WORKDIR /opt/ansible/ansible
-      RUN git checkout v2.2.1.0-0.5.rc5
+      RUN git checkout v2.2.1.0-1
       RUN git submodule update --init
       ENV PATH /opt/ansible/ansible/bin:/bin:/usr/bin:/sbin:/usr/sbin
       ENV PYTHONPATH /opt/ansible/ansible/lib
