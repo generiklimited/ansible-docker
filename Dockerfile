@@ -1,7 +1,7 @@
       FROM alpine:edge
       MAINTAINER Mateusz Pawlowski
       RUN apk --no-cache add \
-        py-yaml py-jinja2  py-paramiko py-setuptools git py2-pip perl py-simplejson rsync \
+        py-crypto py-yaml py-jinja2  py-paramiko py-setuptools git py2-pip perl py-simplejson rsync \
         py-httplib2 openssh py-dnspython py-netaddr \
          && apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/  py-netifaces py-msgpack \
       && rm -rf /var/cache/apk/*
