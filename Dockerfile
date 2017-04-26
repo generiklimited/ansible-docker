@@ -2,7 +2,7 @@
       MAINTAINER Mateusz Pawlowski
       RUN apk --no-cache add \
         py-crypto py-yaml py-jinja2  py-paramiko py-setuptools git py2-pip perl py-simplejson rsync \
-        py-httplib2 openssh py-dnspython py-netaddr \
+        py-httplib2 openssh py-dnspython py-netaddr openssl curl\
          && apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/  py-netifaces py-msgpack \
       && rm -rf /var/cache/apk/*
       RUN pip install --upgrade setuptools
@@ -17,6 +17,9 @@
       ENV PATH /opt/ansible/ansible/bin:/bin:/usr/bin:/sbin:/usr/sbin
       ENV PYTHONPATH /opt/ansible/ansible/lib
       ENV ANSIBLE_LIBRARY /opt/ansible/ansible/library
+      RUN pip install -t /opt/vault --no-deps ansible-modules-hashivault && \
+          cp -r /opt/vault/ansible/* /opt/ansible/ansible/lib/ansible/ && \
+          rm -rf /opt/vault
       RUN mkdir /ansible
       WORKDIR /ansible
 
