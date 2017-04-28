@@ -6,7 +6,7 @@
          && apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/  py-netifaces py-msgpack \
       && rm -rf /var/cache/apk/*
       RUN pip install --upgrade setuptools
-      RUN pip install python-keyczar boto hvac python-consul
+      RUN pip install python-keyczar boto boto3 botocore hvac python-consul
       RUN mkdir /etc/ansible/
       RUN echo "[local]" > /etc/ansible/hosts ; echo "localhost ansible_connection=local" >> /etc/ansible/hosts
       RUN mkdir /opt/ansible/ -p
