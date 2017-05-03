@@ -20,6 +20,7 @@
       RUN pip install -t /opt/vault --no-deps ansible-modules-hashivault && \
           cp -r /opt/vault/ansible/* /opt/ansible/ansible/lib/ansible/ && \
           rm -rf /opt/vault
+      RUN pip uninstall -y cryptography
       RUN mkdir /ansible
       WORKDIR /ansible
 
